@@ -13,8 +13,8 @@
     <style>
         body {
             font-family: 'Prompt', sans-serif;
-            /* ปรับโทนสีหลังเป็นชมพูพาสเทลลายแถบอุ่นๆ ตามภาพที่ 3 */
-            background: linear-gradient(135deg, #f7d6e0 0%, #f2b5d4 50%, #e8dff5 100%);
+            /* ปรับโทนสีตาม Palette: ชมพูพาสเทล สลับ ฟ้าพาสเทลอ่อน และเขียวเลมอนอ่อน */
+            background: linear-gradient(135deg, #f7e8ee 0%, #d8e2dc 50%, #cad2c5 100%);
             min-height: 100vh;
         }
         
@@ -49,13 +49,13 @@
         .anim-pulse { animation: pulse-soft 3s ease-in-out infinite; }
         .anim-spin { animation: spin-slow 8s linear infinite; }
 
-        /* การ์ดสไตล์ Glass ปรับโทนชมพูขาวนวลตามภาพที่ 3 */
+        /* การ์ดสไตล์ Glass โทนสว่างนวลตามรูป Palette */
         .glass-card {
-            background: rgba(255, 255, 255, 0.90);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.95);
-            box-shadow: 0 20px 50px -10px rgba(182, 126, 150, 0.2), 
+            box-shadow: 0 20px 50px -10px rgba(59, 81, 130, 0.15), 
                         inset 0 2px 10px rgba(255, 255, 255, 0.9);
         }
 
@@ -79,7 +79,7 @@
             pointer-events: none;
             z-index: 9999;
             animation: floatAndFade 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            color: #f2b5d4;
+            color: #90a1d6;
             user-select: none;
         }
         @keyframes floatAndFade {
@@ -121,34 +121,19 @@
             theme: {
                 extend: {
                     colors: {
-                        pastelPink: '#f7d6e0',
-                        pastelBlue: '#d8e2dc',
-                        cream: {
-                            50: '#fff0f5',
-                            100: '#f7d6e0',
-                            200: '#f2b5d4',
-                        },
-                        brown: {
-                            300: '#d5bdaf',
-                            400: '#8d7b68',
-                            500: '#635147',
-                            600: '#4a3b32',
-                        },
-                        pink: {
-                            50: '#fff0f5',
-                            100: '#f7d6e0',
-                            200: '#f2b5d4',
-                            300: '#e8a5c8',
-                            400: '#d883b0',
-                            500: '#635147',
-                        }
+                        pastelPink: '#f7e8ee',
+                        pastelGreen: '#d2e4bc',
+                        pastelBlue: '#90a1d6',
+                        navyBlue: '#3b5182',
+                        pastelBrown: '#8c786d',
+                        darkBrown: '#5c4b43'
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="flex flex-col items-center py-6 px-4 text-[#4a3b32] relative overflow-x-hidden">
+<body class="flex flex-col items-center py-6 px-4 text-[#5c4b43] relative overflow-x-hidden">
 
     <!-- Background Decorative SVGs -->
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
@@ -165,8 +150,8 @@
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-[#635147] backdrop-blur-sm text-white px-6 py-3 rounded-full shadow-xl transition-all duration-300 opacity-0 translate-y-4 pointer-events-none z-50 flex items-center gap-2 font-medium text-sm border border-[#f2b5d4]">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 text-[#f7d6e0]">
+    <div id="toast" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3b5182] backdrop-blur-sm text-white px-6 py-3 rounded-full shadow-xl transition-all duration-300 opacity-0 translate-y-4 pointer-events-none z-50 flex items-center gap-2 font-medium text-sm border border-[#90a1d6]">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 text-[#f7e8ee]">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         <span id="toast-text">คัดลอกเรียบร้อย !</span>
@@ -177,40 +162,40 @@
         
         <!-- ส่วน Badges -->
         <div class="flex items-center justify-center gap-2 pt-1">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/80 text-[#4a3b32] border border-[#f2b5d4] shadow-sm">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/80 text-[#3b5182] border border-[#d2e4bc] shadow-sm">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 พร้อมใช้งาน
             </span>
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/50 text-[#4a3b32] border border-[#f2b5d4]">
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/50 text-[#3b5182] border border-[#d2e4bc]">
                 janemor 𓈒 store
             </span>
         </div>
 
         <!-- Header -->
         <div class="text-center pt-1 pb-1 relative">
-            <h1 class="text-2xl font-bold tracking-tight text-[#4a3b32] flex items-center justify-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[#8d7b68] anim-pulse">
+            <h1 class="text-2xl font-bold tracking-tight text-[#3b5182] flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[#90a1d6] anim-pulse">
                     <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
                 </svg>
                 janemor 𓈒 store
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[#8d7b68] anim-pulse transform -scale-x-100">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[#90a1d6] anim-pulse transform -scale-x-100">
                     <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
                 </svg>
             </h1>
-            <p class="text-sm font-medium text-[#8d7b68] mt-0.5">how to pay ♡ jane !</p>
+            <p class="text-sm font-medium text-[#8c786d] mt-0.5">how to pay ♡ jane !</p>
         </div>
 
         <!-- ดีไซน์การ์ด Glass & App Style -->
         <div class="glass-card rounded-[40px] p-3 relative z-10">
             
-            <svg class="absolute -top-4 -left-2 w-9 h-9 text-[#8d7b68] anim-float-1 z-20 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            <svg class="absolute top-[25%] -right-3 w-7 h-7 text-[#f2b5d4] anim-float-2 z-20 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg class="absolute bottom-[40%] -left-3 w-5 h-5 text-[#8d7b68] anim-spin z-20 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg class="absolute -top-4 -left-2 w-9 h-9 text-[#8c786d] anim-float-1 z-20 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <svg class="absolute top-[25%] -right-3 w-7 h-7 text-[#d2e4bc] anim-float-2 z-20 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg class="absolute bottom-[40%] -left-3 w-5 h-5 text-[#90a1d6] anim-spin z-20 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
 
             <!-- รูปภาพป้ายสแกนชำระเงิน -->
             <div class="relative p-2 rounded-[36px] z-10">
                 <svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="calc(100% - 4px)" height="calc(100% - 4px)" rx="34" fill="none" stroke="#f2b5d4" stroke-width="2.5" stroke-dasharray="12 12" stroke-linecap="round" class="animate-dash" />
+                    <rect x="2" y="2" width="calc(100% - 4px)" height="calc(100% - 4px)" rx="34" fill="none" stroke="#d2e4bc" stroke-width="2.5" stroke-dasharray="12 12" stroke-linecap="round" class="animate-dash" />
                 </svg>
                 <div class="rounded-[28px] overflow-hidden relative shadow-sm border-[4px] border-white">
                     <img src="งานศิลปะที่ไม่มีชื่อ76_20260928013605.png" alt="บัญชี janemor store" class="w-full h-auto object-cover" onerror="this.src='งานศิลปะที่ไม่มีชื่อ76_20260928013605.png'">
@@ -221,23 +206,23 @@
             <div class="p-4 pt-6 space-y-5">
                 
                 <div class="text-center space-y-3">
-                    <p class="text-[15px] font-medium leading-relaxed text-[#4a3b32]">
-                        <span class="inline-flex items-center justify-center gap-1">
-                            เลขบัญชีตามนี้เลยค้าบ
-                            <svg class="w-4 h-4 text-[#8d7b68] anim-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    <p class="text-[15px] font-medium leading-relaxed text-[#5c4b43]">
+                        <span class="inline-flex items-center justify-center gap-1 font-semibold text-[#3b5182]">
+                            โอนแล้วแจ้งสลิปทุกครั้งนะคะ
+                            <svg class="w-4 h-4 text-[#90a1d6] anim-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                         </span>
-                        <br>ช่องทางชำระเงิน <span class="text-[#4a3b32] font-bold bg-white/90 px-2.5 py-0.5 rounded-lg border border-[#f2b5d4] relative inline-block shadow-sm">
-                            janemor 𓈒 store
-                            <svg class="absolute -top-2 -right-2.5 w-4 h-4 text-[#8d7b68] anim-float-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <br>♡ name : <span class="text-[#3b5182] font-bold bg-[#f7e8ee]/80 px-2.5 py-0.5 rounded-lg border border-[#d2e4bc] relative inline-block shadow-sm">
+                            Raphatrada S.
+                            <svg class="absolute -top-2 -right-2.5 w-4 h-4 text-[#90a1d6] anim-float-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                         </span>
                     </p>
                     
-                    <div class="inline-flex items-center justify-center gap-1.5 text-[11px] text-[#4a3b32] font-medium bg-white/70 px-4 py-2.5 rounded-full border border-[#f2b5d4] shadow-sm whitespace-nowrap">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 text-[#8d7b68] shrink-0">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+                    <div class="inline-flex items-center justify-center gap-1.5 text-[11px] text-[#5c4b43] font-medium bg-white/70 px-4 py-2.5 rounded-full border border-[#d2e4bc] shadow-sm whitespace-nowrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 text-[#90a1d6] shrink-0">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621 1.125-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
                         </svg>
                         เซฟหรือคัดลอกเลขบัญชีได้เลยนะคะ
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 text-[#8d7b68] shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 text-[#90a1d6] shrink-0">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
                         </svg>
                     </div>
@@ -245,72 +230,47 @@
 
                 <!-- Divider -->
                 <div class="flex items-center gap-3 py-2">
-                    <div class="h-px bg-[#f2b5d4] flex-1"></div>
-                    <span class="text-[11px] font-semibold text-[#8d7b68] tracking-wider uppercase">ช่องทางชำระเงิน</span>
-                    <div class="h-px bg-[#f2b5d4] flex-1"></div>
+                    <div class="h-px bg-[#d2e4bc] flex-1"></div>
+                    <span class="text-[11px] font-semibold text-[#8c786d] tracking-wider uppercase">รายละเอียดการชำระเงิน</span>
+                    <div class="h-px bg-[#d2e4bc] flex-1"></div>
                 </div>
 
-                <!-- โซนบัญชีธนาคาร (ปรับตามภาพที่ 1) -->
+                <!-- โซนบัญชีธนาคาร -->
                 <div class="space-y-4">
                     
                     <!-- คงโครงสร้างบัตรที่ 1 (ซ่อนไว้อย่างสมบูรณ์เพื่อคงโครงสร้าง HTML เดิม) -->
-                    <div class="virtual-card hidden relative bg-gradient-to-br from-[#f7d6e0] to-[#e8dff5] rounded-[24px] p-5 shadow-lg shadow-[#8d7b68]/10 overflow-hidden cursor-pointer border border-white/80" onclick="copyText('2311757531', this, 'kbank')">
+                    <div class="virtual-card hidden relative bg-gradient-to-br from-[#f7e8ee] to-[#d2e4bc] rounded-[24px] p-5 opacity-0" onclick="copyText('2311757531', this, 'kbank')">
                         <div class="relative z-10 flex flex-col gap-4">
-                            <div class="flex justify-between items-center">
-                                <div class="bg-white/50 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/60">
-                                    <span class="text-[#4a3b32] font-bold text-sm tracking-wider">Kplus</span>
-                                </div>
-                                <button class="kbank-btn bg-white text-[#8d7b68] text-[12px] font-bold px-4 py-2 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none">
-                                    คัดลอก
-                                </button>
-                            </div>
+                            <button class="kbank-btn bg-white text-[#8c786d] text-[12px] font-bold px-4 py-2 rounded-full">คัดลอก</button>
                         </div>
                     </div>
 
                     <!-- คงโครงสร้างบัตรที่ 2 (ซ่อนไว้อย่างสมบูรณ์เพื่อคงโครงสร้าง HTML เดิม) -->
-                    <div class="virtual-card hidden relative bg-gradient-to-br from-[#f7d6e0] to-[#e8dff5] rounded-[24px] p-5 shadow-lg shadow-[#8d7b68]/10 overflow-hidden cursor-pointer border border-white/80" onclick="copyText('0612633997', this, 'promptpay')">
+                    <div class="virtual-card hidden relative bg-gradient-to-br from-[#f7e8ee] to-[#d2e4bc] rounded-[24px] p-5 opacity-0" onclick="copyText('0612633997', this, 'promptpay')">
                         <div class="relative z-10 flex flex-col gap-4">
-                            <div class="flex justify-between items-center">
-                                <button class="promptpay-btn bg-white text-[#8d7b68] text-[12px] font-bold px-4 py-2 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none">
-                                    คัดลอก
-                                </button>
-                            </div>
+                            <button class="promptpay-btn bg-white text-[#8c786d] text-[12px] font-bold px-4 py-2 rounded-full">คัดลอก</button>
                         </div>
                     </div>
 
-                    <!-- บัตร TrueMoney Wallet ใบเดียวตามภาพที่ 1 -->
-                    <div class="virtual-card relative bg-gradient-to-br from-[#fbf8fd] to-[#f4e8f7] rounded-[28px] p-5 shadow-lg shadow-[#b67e96]/10 overflow-hidden cursor-pointer border border-white/90" onclick="copyText('0612633997', this, 'true')">
-                        <svg class="absolute -right-6 -bottom-6 w-32 h-32 text-[#f2b5d4] opacity-20 transform -rotate-12 pointer-events-none" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-
+                    <!-- คงโครงสร้างบัตรที่ 3 (เอาบล็อกกล่อง TrueMoney Wallet ออก โดยซ่อนไว้อย่างสมบูรณ์เพื่อคงโครงสร้าง HTML เดิม) -->
+                    <div class="virtual-card hidden relative bg-gradient-to-br from-[#f7e8ee] to-[#d2e4bc] rounded-[24px] p-5 opacity-0" onclick="copyText('0612633997', this, 'true')">
                         <div class="relative z-10 flex flex-col gap-4">
-                            <div class="flex justify-between items-center">
-                                <div class="bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#f2b5d4]/40 shadow-sm">
-                                    <span class="text-[#433842] font-bold text-sm tracking-wide">TrueMoney Wallet</span>
-                                </div>
-                                <button class="true-btn bg-white text-[#433842] text-[12px] font-bold px-4 py-2 rounded-full flex items-center gap-1.5 shadow-sm border border-white/80 pointer-events-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                                    คัดลอก
-                                </button>
-                            </div>
-                            <div class="mt-2 pl-1">
-                                <div class="text-[#685366] text-[12px] font-medium mb-1.5">ทรูมันนี่ วอลเล็ท (เบอร์โทรศัพท์)</div>
-                                <div class="text-[#3c303b] font-bold text-[24px] tracking-wider leading-none drop-shadow-sm">061 263 3997</div>
-                            </div>
+                            <button class="true-btn bg-white text-[#8c786d] text-[12px] font-bold px-4 py-2 rounded-full">คัดลอก</button>
                         </div>
                     </div>
 
                     <!-- กล่องเตือน 1 -->
-                    <div class="relative bg-gradient-to-br from-[#fff0f5] to-[#f7d6e0] rounded-[20px] p-3.5 border-2 border-dashed border-[#f2b5d4] shadow-sm z-10 overflow-hidden transform transition-transform hover:scale-[1.02] mt-1">
-                        <svg class="absolute -right-3 -bottom-3 w-14 h-14 text-[#f2b5d4]/40 transform -rotate-12 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    <div class="relative bg-gradient-to-br from-[#fff8fa] to-[#f7e8ee] rounded-[20px] p-3.5 border-2 border-dashed border-[#d2e4bc] shadow-sm z-10 overflow-hidden transform transition-transform hover:scale-[1.02] mt-1">
+                        <svg class="absolute -right-3 -bottom-3 w-14 h-14 text-[#d2e4bc]/40 transform -rotate-12 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
 
                         <div class="flex items-start gap-3 relative z-10">
-                            <div class="bg-[#8d7b68] p-1.5 rounded-full shadow-md text-white flex-shrink-0 mt-1 animate-bounce">
+                            <div class="bg-[#3b5182] p-1.5 rounded-full shadow-md text-white flex-shrink-0 mt-1 animate-bounce">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-3.5 h-3.5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                 </svg>
                             </div>
-                            <div class="text-[12px] text-[#4a3b32] leading-relaxed text-left flex-1">
-                                <span class="inline-block bg-[#8d7b68] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mb-1.5 tracking-wider shadow-sm">
+                            <div class="text-[12px] text-[#5c4b43] leading-relaxed text-left flex-1">
+                                <span class="inline-block bg-[#3b5182] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mb-1.5 tracking-wider shadow-sm">
                                     ข้อตกลง
                                 </span><br>
                                 Note slip ลืมโน๊ตโอนเพิ่ม 0.1฿<br>
@@ -320,34 +280,33 @@
                     </div>
 
                     <!-- กล่องเตือน 2 -->
-                    <div class="bg-white/80 border border-[#f2b5d4] rounded-2xl p-3 flex items-start gap-3 text-left">
-                        <div class="bg-white p-1.5 rounded-full shadow-sm text-[#8d7b68] flex-shrink-0 border border-[#f2b5d4]">
+                    <div class="bg-white/80 border border-[#d2e4bc] rounded-2xl p-3 flex items-start gap-3 text-left">
+                        <div class="bg-white p-1.5 rounded-full shadow-sm text-[#3b5182] flex-shrink-0 border border-[#d2e4bc]">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                             </svg>
                         </div>
-                        <div class="text-[13px] leading-relaxed text-[#4a3b32] font-medium">
+                        <div class="text-[13px] leading-relaxed text-[#5c4b43] font-medium">
                             สำคัญ !<br>
-                            <span class="text-[#8d7b68] text-[12px] font-normal flex items-center gap-1 flex-wrap">
+                            <span class="text-[#8c786d] text-[12px] font-normal flex items-center gap-1 flex-wrap">
                                 วอเลท +2 บาทนะคะ
-                                <svg class="w-3.5 h-3.5 text-[#8d7b68]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                <svg class="w-3.5 h-3.5 text-[#90a1d6]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                             </span>
                         </div>
                     </div>
 
-                    <!-- กล่องเตือน 3 (ปรับแก้ตามภาพที่ 2 ให้เหลือข้อความเปล่าๆ ไม่มีกรอบ) -->
-                    <div class="bg-white/80 border border-[#f2b5d4] rounded-2xl p-3 flex flex-col gap-1.5 text-left">
+                    <!-- กล่องเตือน 3 (ข้อความเปล่าเรียบคลีน) -->
+                    <div class="bg-white/80 border border-[#d2e4bc] rounded-2xl p-3 flex flex-col gap-1.5 text-left">
                         <div class="flex items-center gap-2.5">
-                            <div class="bg-white p-1.5 rounded-full shadow-sm text-[#8d7b68] flex-shrink-0 border border-[#f2b5d4]">
+                            <div class="bg-white p-1.5 rounded-full shadow-sm text-[#3b5182] flex-shrink-0 border border-[#d2e4bc]">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                                 </svg>
                             </div>
-                            <span class="text-[13px] font-bold text-[#4a3b32]">Note slip :</span>
+                            <span class="text-[13px] font-bold text-[#3b5182]">Note slip :</span>
                         </div>
 
-                        <!-- ข้อความเปล่าๆ ตามแบบภาพที่ 2 (คง onclick เพื่อให้กดคัดลอกได้ตามปกติ) -->
-                        <div class="pl-8 text-[13px] font-bold text-[#4a3b32] cursor-pointer hover:opacity-75 transition-opacity" onclick="copyText('ซื้อขาย @040zjmyn', this, 'noteslip')">
+                        <div class="pl-8 text-[13px] font-bold text-[#5c4b43] cursor-pointer hover:opacity-75 transition-opacity" onclick="copyText('ซื้อขาย @040zjmyn', this, 'noteslip')">
                             ซื้อขาย @040zjmyn
                             <span class="noteslip-btn hidden"></span>
                         </div>
@@ -358,9 +317,9 @@
         </div>
 
         <!-- Footer Note -->
-        <div class="text-center flex flex-col items-center justify-center gap-1.5 text-[11px] text-[#8d7b68] pt-1 relative z-10">
-            <div class="flex items-center gap-1 font-medium text-[#635147]">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-[#8d7b68] anim-pulse">
+        <div class="text-center flex flex-col items-center justify-center gap-1.5 text-[11px] text-[#8c786d] pt-1 relative z-10">
+            <div class="flex items-center gap-1 font-medium text-[#3b5182]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-[#90a1d6] anim-pulse">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z" />
                 </svg>
                 janemor 𓈒 store
