@@ -13,7 +13,6 @@
     <style>
         body {
             font-family: 'Prompt', sans-serif;
-            /* ปรับไล่เฉดสีพื้นหลังตาม Palette: ชมพูนม ชมพูอ่อน และฟ้าพาสเทล */
             background: linear-gradient(135deg, #fdeef4 0%, #f2cae0 40%, #e2ecf8 100%);
             min-height: 100vh;
         }
@@ -49,7 +48,7 @@
         .anim-pulse { animation: pulse-soft 3s ease-in-out infinite; }
         .anim-spin { animation: spin-slow 8s linear infinite; }
 
-        /* การ์ดสไตล์ Glass สว่างนวลตามรูป Palette */
+        /* การ์ดสไตล์ Glass สว่างนวล */
         .glass-card {
             background: rgba(255, 255, 255, 0.90);
             backdrop-filter: blur(16px);
@@ -253,19 +252,19 @@
                                 </button>
                             </div>
                             <div class="mt-2">
-                                <div class="text-[#38529a]/80 text-[11px] font-medium mb-1 drop-shadow-sm">กสิกรไทย (Kplus)</div>
+                                <div class="text-[#38529a]/80 text-[11px] font-medium mb-1 drop-shadow-sm">กสิกรไทย</div>
                                 <div class="text-[#38529a] font-bold text-[22px] tracking-widest leading-none drop-shadow-md">231 1757 531</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- บัตรที่ 2: TrueMoney Wallet -->
+                    <!-- บัตรที่ 2: TrueMoney Wallet (ปรับป้ายวงรีให้ตรงกับ Kplus และตัดคำในวงเล็บออก) -->
                     <div class="virtual-card relative bg-gradient-to-br from-[#ffffff] to-[#fdeef4] rounded-[24px] p-5 shadow-lg shadow-[#38529a]/10 overflow-hidden cursor-pointer border border-white/90" onclick="copyText('0612633997', this, 'true')">
                         <svg class="absolute -right-6 -bottom-6 w-32 h-32 text-[#99b3e6] opacity-25 transform -rotate-12 pointer-events-none" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
 
                         <div class="relative z-10 flex flex-col gap-4">
                             <div class="flex justify-between items-center">
-                                <div class="bg-[#f2cae0]/60 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-[#cbe39d]">
+                                <div class="bg-white/70 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white/80">
                                     <span class="text-[#38529a] font-bold text-sm tracking-wider">TrueMoney Wallet</span>
                                 </div>
                                 <button class="true-btn bg-white text-[#38529a] text-[12px] font-bold px-4 py-2 rounded-full flex items-center gap-1.5 shadow-sm border border-white/80 pointer-events-none">
@@ -274,7 +273,7 @@
                                 </button>
                             </div>
                             <div class="mt-2">
-                                <div class="text-[#38529a]/80 text-[11px] font-medium mb-1 drop-shadow-sm">ทรูมันนี่ วอลเล็ท (เบอร์โทรศัพท์)</div>
+                                <div class="text-[#38529a]/80 text-[11px] font-medium mb-1 drop-shadow-sm">ทรูมันนี่ วอลเล็ท</div>
                                 <div class="text-[#38529a] font-bold text-[22px] tracking-widest leading-none drop-shadow-md">061 263 3997</div>
                             </div>
                         </div>
