@@ -13,7 +13,6 @@
     <style>
         body {
             font-family: 'Prompt', sans-serif;
-            /* ปรับโทนสีตาม Palette: ชมพูพาสเทล สลับ ฟ้าพาสเทลอ่อน และเขียวเลมอนอ่อน */
             background: linear-gradient(135deg, #f7e8ee 0%, #d8e2dc 50%, #cad2c5 100%);
             min-height: 100vh;
         }
@@ -49,7 +48,7 @@
         .anim-pulse { animation: pulse-soft 3s ease-in-out infinite; }
         .anim-spin { animation: spin-slow 8s linear infinite; }
 
-        /* การ์ดสไตล์ Glass โทนสว่างนวลตามรูป Palette */
+        /* การ์ดสไตล์ Glass โทนสว่างนวล */
         .glass-card {
             background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(16px);
@@ -231,32 +230,58 @@
                 <!-- Divider -->
                 <div class="flex items-center gap-3 py-2">
                     <div class="h-px bg-[#d2e4bc] flex-1"></div>
-                    <span class="text-[11px] font-semibold text-[#8c786d] tracking-wider uppercase">รายละเอียดการชำระเงิน</span>
+                    <span class="text-[11px] font-semibold text-[#8c786d] tracking-wider uppercase">เลือกช่องทางชำระเงิน</span>
                     <div class="h-px bg-[#d2e4bc] flex-1"></div>
                 </div>
 
                 <!-- โซนบัญชีธนาคาร -->
                 <div class="space-y-4">
                     
-                    <!-- คงโครงสร้างบัตรที่ 1 (ซ่อนไว้อย่างสมบูรณ์เพื่อคงโครงสร้าง HTML เดิม) -->
-                    <div class="virtual-card hidden relative bg-gradient-to-br from-[#f7e8ee] to-[#d2e4bc] rounded-[24px] p-5 opacity-0" onclick="copyText('2311757531', this, 'kbank')">
+                    <!-- บัตรที่ 1: Kplus -->
+                    <div class="virtual-card relative bg-gradient-to-br from-[#f7e8ee] to-[#d2e4bc] rounded-[24px] p-5 shadow-lg shadow-[#3b5182]/10 overflow-hidden cursor-pointer border border-white/80" onclick="copyText('2311757531', this, 'kbank')">
+                        <svg class="absolute -right-6 -bottom-6 w-32 h-32 text-white opacity-30 transform -rotate-12 pointer-events-none" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        
                         <div class="relative z-10 flex flex-col gap-4">
-                            <button class="kbank-btn bg-white text-[#8c786d] text-[12px] font-bold px-4 py-2 rounded-full">คัดลอก</button>
+                            <div class="flex justify-between items-center">
+                                <div class="bg-white/60 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white/80">
+                                    <span class="text-[#3b5182] font-bold text-sm tracking-wider">Kplus</span>
+                                </div>
+                                <button class="kbank-btn bg-white text-[#3b5182] text-[12px] font-bold px-4 py-2 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                    คัดลอก
+                                </button>
+                            </div>
+                            <div class="mt-2">
+                                <div class="text-[#5c4b43] text-[11px] font-medium mb-1 drop-shadow-sm">กสิกรไทย (Kplus)</div>
+                                <div class="text-[#3b5182] font-bold text-[22px] tracking-widest leading-none drop-shadow-md">231 1757 531</div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- คงโครงสร้างบัตรที่ 2 (ซ่อนไว้อย่างสมบูรณ์เพื่อคงโครงสร้าง HTML เดิม) -->
+                    <!-- บัตรที่ 2: TrueMoney Wallet -->
+                    <div class="virtual-card relative bg-gradient-to-br from-[#ffffff] to-[#f7e8ee] rounded-[24px] p-5 shadow-lg shadow-[#3b5182]/10 overflow-hidden cursor-pointer border border-white/90" onclick="copyText('0612633997', this, 'true')">
+                        <svg class="absolute -right-6 -bottom-6 w-32 h-32 text-[#90a1d6] opacity-20 transform -rotate-12 pointer-events-none" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+
+                        <div class="relative z-10 flex flex-col gap-4">
+                            <div class="flex justify-between items-center">
+                                <div class="bg-[#f7e8ee]/80 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-[#d2e4bc]">
+                                    <span class="text-[#3b5182] font-bold text-sm tracking-wider">TrueMoney Wallet</span>
+                                </div>
+                                <button class="true-btn bg-white text-[#3b5182] text-[12px] font-bold px-4 py-2 rounded-full flex items-center gap-1.5 shadow-sm border border-white/80 pointer-events-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                    คัดลอก
+                                </button>
+                            </div>
+                            <div class="mt-2">
+                                <div class="text-[#5c4b43] text-[11px] font-medium mb-1 drop-shadow-sm">ทรูมันนี่ วอลเล็ท (เบอร์โทรศัพท์)</div>
+                                <div class="text-[#3b5182] font-bold text-[22px] tracking-widest leading-none drop-shadow-md">061 263 3997</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- คงโครงสร้างบัตรที่ 3 (สำรองซ่อนไว้เพื่อรักษาโครงสร้างเดิม) -->
                     <div class="virtual-card hidden relative bg-gradient-to-br from-[#f7e8ee] to-[#d2e4bc] rounded-[24px] p-5 opacity-0" onclick="copyText('0612633997', this, 'promptpay')">
-                        <div class="relative z-10 flex flex-col gap-4">
-                            <button class="promptpay-btn bg-white text-[#8c786d] text-[12px] font-bold px-4 py-2 rounded-full">คัดลอก</button>
-                        </div>
-                    </div>
-
-                    <!-- คงโครงสร้างบัตรที่ 3 (เอาบล็อกกล่อง TrueMoney Wallet ออก โดยซ่อนไว้อย่างสมบูรณ์เพื่อคงโครงสร้าง HTML เดิม) -->
-                    <div class="virtual-card hidden relative bg-gradient-to-br from-[#f7e8ee] to-[#d2e4bc] rounded-[24px] p-5 opacity-0" onclick="copyText('0612633997', this, 'true')">
-                        <div class="relative z-10 flex flex-col gap-4">
-                            <button class="true-btn bg-white text-[#8c786d] text-[12px] font-bold px-4 py-2 rounded-full">คัดลอก</button>
-                        </div>
+                        <button class="promptpay-btn bg-white text-[#8c786d] text-[12px] font-bold px-4 py-2 rounded-full">คัดลอก</button>
                     </div>
 
                     <!-- กล่องเตือน 1 -->
@@ -295,20 +320,26 @@
                         </div>
                     </div>
 
-                    <!-- กล่องเตือน 3 (ข้อความเปล่าเรียบคลีน) -->
-                    <div class="bg-white/80 border border-[#d2e4bc] rounded-2xl p-3 flex flex-col gap-1.5 text-left">
-                        <div class="flex items-center gap-2.5">
+                    <!-- กล่องเตือน 3 (โน้ตสลิป + ปุ่มคัดลอก) -->
+                    <div class="bg-white/80 border border-[#d2e4bc] rounded-2xl p-3 flex flex-col gap-2.5 text-left">
+                        <div class="flex items-start gap-3">
                             <div class="bg-white p-1.5 rounded-full shadow-sm text-[#3b5182] flex-shrink-0 border border-[#d2e4bc]">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                                 </svg>
                             </div>
-                            <span class="text-[13px] font-bold text-[#3b5182]">Note slip :</span>
+                            <div class="text-[13px] leading-relaxed text-[#5c4b43] font-medium">
+                                <span class="text-[#3b5182] font-bold">Note slip :</span>
+                            </div>
                         </div>
 
-                        <div class="pl-8 text-[13px] font-bold text-[#5c4b43] cursor-pointer hover:opacity-75 transition-opacity" onclick="copyText('ซื้อขาย @040zjmyn', this, 'noteslip')">
-                            ซื้อขาย @040zjmyn
-                            <span class="noteslip-btn hidden"></span>
+                        <!-- ปุ่มคัดลอกคำว่า "ซื้อขาย @040zjmyn" -->
+                        <div class="virtual-card bg-gradient-to-r from-[#fff8fa] to-[#f7e8ee] border border-[#d2e4bc] rounded-xl p-2.5 flex items-center justify-between cursor-pointer ml-8 shadow-sm" onclick="copyText('ซื้อขาย @040zjmyn', this, 'noteslip')">
+                            <span class="text-[12px] font-bold text-[#3b5182] pl-1">ซื้อขาย @040zjmyn</span>
+                            <button class="noteslip-btn bg-white text-[#3b5182] text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm border border-[#f7e8ee] pointer-events-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                คัดลอก
+                            </button>
                         </div>
                     </div>
 
